@@ -2,7 +2,10 @@ variable "db_instance_id" {
   type        = string
   description = "RDS Instance ID"
 }
-
+variable "extra_alert_desc" {
+  type = string
+  default = ""
+}
 variable "prefix" {
   type        = string
   default     = ""
