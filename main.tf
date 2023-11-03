@@ -9,7 +9,7 @@ resource "aws_cloudwatch_metric_alarm" "cpu_utilization_too_high" {
   period              = var.statistic_period
   statistic           = "Average"
   threshold           = var.cpu_utilization_too_high_threshold
-  alarm_description   = "Average database CPU utilization is too high."
+  alarm_description   = "Average database CPU utilization is too high. \n ${var.extra_alert_desc}"
   alarm_actions       = var.actions_alarm
   ok_actions          = var.actions_ok
 
@@ -29,7 +29,7 @@ resource "aws_cloudwatch_metric_alarm" "cpu_credit_balance_too_low" {
   period              = var.statistic_period
   statistic           = "Average"
   threshold           = var.cpu_credit_balance_too_low_threshold
-  alarm_description   = "Average database CPU credit balance is too low, a negative performance impact is imminent."
+  alarm_description   = "Average database CPU credit balance is too low, a negative performance impact is imminent. \n ${var.extra_alert_desc}"
   alarm_actions       = var.actions_alarm
   ok_actions          = var.actions_ok
 
@@ -50,7 +50,7 @@ resource "aws_cloudwatch_metric_alarm" "disk_queue_depth_too_high" {
   period              = var.statistic_period
   statistic           = "Average"
   threshold           = var.disk_queue_depth_too_high_threshold
-  alarm_description   = "Average database disk queue depth is too high, performance may be negatively impacted."
+  alarm_description   = "Average database disk queue depth is too high, performance may be negatively impacted. \n ${var.extra_alert_desc}"
   alarm_actions       = var.actions_alarm
   ok_actions          = var.actions_ok
 
@@ -70,7 +70,7 @@ resource "aws_cloudwatch_metric_alarm" "disk_free_storage_space_too_low" {
   period              = var.statistic_period
   statistic           = "Average"
   threshold           = var.disk_free_storage_space_too_low_threshold
-  alarm_description   = "Average database free storage space is too low and may fill up soon."
+  alarm_description   = "Average database free storage space is too low and may fill up soon. \n ${var.extra_alert_desc}"
   alarm_actions       = var.actions_alarm
   ok_actions          = var.actions_ok
 
@@ -90,7 +90,7 @@ resource "aws_cloudwatch_metric_alarm" "disk_burst_balance_too_low" {
   period              = var.statistic_period
   statistic           = "Average"
   threshold           = var.disk_burst_balance_too_low_threshold
-  alarm_description   = "Average database storage burst balance is too low, a negative performance impact is imminent."
+  alarm_description   = "Average database storage burst balance is too low, a negative performance impact is imminent. \n ${var.extra_alert_desc}"
   alarm_actions       = var.actions_alarm
   ok_actions          = var.actions_ok
 
@@ -111,7 +111,7 @@ resource "aws_cloudwatch_metric_alarm" "memory_freeable_too_low" {
   period              = var.statistic_period
   statistic           = "Average"
   threshold           = var.memory_freeable_too_low_threshold
-  alarm_description   = "Average database freeable memory is too low, performance may be negatively impacted."
+  alarm_description   = "Average database freeable memory is too low, performance may be negatively impacted. \n ${var.extra_alert_desc}"
   alarm_actions       = var.actions_alarm
   ok_actions          = var.actions_ok
 
@@ -131,7 +131,7 @@ resource "aws_cloudwatch_metric_alarm" "memory_swap_usage_too_high" {
   period              = var.statistic_period
   statistic           = "Average"
   threshold           = var.memory_swap_usage_too_high_threshold
-  alarm_description   = "Average database swap usage is too high, performance may be negatively impacted."
+  alarm_description   = "Average database swap usage is too high, performance may be negatively impacted. \n ${var.extra_alert_desc}"
   alarm_actions       = var.actions_alarm
   ok_actions          = var.actions_ok
 
@@ -148,7 +148,7 @@ resource "aws_cloudwatch_metric_alarm" "connection_count_anomalous" {
   comparison_operator = "GreaterThanUpperThreshold"
   evaluation_periods  = var.evaluation_period
   threshold_metric_id = "e1"
-  alarm_description   = "Anomalous database connection count detected. Something unusual is happening."
+  alarm_description   = "Anomalous database connection count detected. Something unusual is happening. \n ${var.extra_alert_desc}"
   alarm_actions       = var.actions_alarm
   ok_actions          = var.actions_ok
 
@@ -189,7 +189,7 @@ resource "aws_cloudwatch_metric_alarm" "maximum_used_transaction_ids_too_high" {
   period              = var.statistic_period
   statistic           = "Average"
   threshold           = var.maximum_used_transaction_ids_too_high_threshold
-  alarm_description   = "Nearing a possible critical transaction ID wraparound."
+  alarm_description   = "Nearing a possible critical transaction ID wraparound. \n ${var.extra_alert_desc}"
   alarm_actions       = var.actions_alarm
   ok_actions          = var.actions_ok
 }
